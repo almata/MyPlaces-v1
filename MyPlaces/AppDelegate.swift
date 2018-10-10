@@ -14,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let manager = PlaceManager.shared()
-        let pl = Place(name: "Test Place", description: "More info", image_in: nil)
-        manager.append(pl)
+        
+        // We add some test places so the app can show some information when it loads. When we start
+        // creating our own real content we will need to remove this part, of course.
+        let manager = PlaceManager.shared
+        for place in manager.someTestPlaces {
+            manager.append(place)
+        }
+        
         return true
     }
 
